@@ -1,20 +1,23 @@
 'use strict';
 
 const Router = require('express').Router;
+let router = Router();
 
-let someOtherRouter = Router();
-let primaryRouter = module.exports = exports = Router();
+var bodyParser = require('body-parser');
 
-someOtherRouter.get('/someroute', (req, res) => {
-  res.json({msg: 'hello from some route'});
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }));
+
+router.get('/user/:id', (req, res) => {
+  res.status(200).json({id: req.params.id});
 });
 
-primaryRouter.get('/hello', (req, res) => {
-  res.status(202).json({msg: 'hello world!!!'});
+router.post('/user', (req, res) => {
+  res.status(200).json({name: req.body.name});
 });
 
-primaryRouter.get('/hello/:first/:last', (req, res) => {
-  res.json({msg: 'hello ' + req.params.last + ', ' + req.params.first});
+router.post('/user/:id', (req, res) => {
+  res.status(200).json({id: req.params.id});
 });
 
-primaryRouter.use('/something', someOtherRouter);
+module.exports = router;
