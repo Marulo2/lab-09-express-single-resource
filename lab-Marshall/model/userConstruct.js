@@ -1,13 +1,12 @@
 'use strict';
 
-const appError = require('./appError');
 const uuid = require('node-uuid');
 
-const User = function(name){
-  if(!name) return appError.error400();
+const cfStudents = function(name, age, gender){
   this.id = uuid.v1();
   this.name = name;
-  this.date = Date.now();
+  this.age = age;
+  this.gender = gender;
 };
 
-module.exports = User;
+module.exports = cfStudents;
