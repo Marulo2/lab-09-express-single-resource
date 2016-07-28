@@ -51,14 +51,14 @@ describe('CRUD TESTS', () => {
       });
   });
 
-  it('should get names', (done) => {
-    request(server)
-      .get('api/students')
-      .end((err, res) => {
-        expect(err).to.eql(null);
-        expect(res).to.have.status(200);
-        expect(res.body.name).to.eql('marshall');
-        done();
-      });
-  });
+  // it('should get names', (done) => {
+  //   request(server)
+  //     .get('api/students')
+  //     .end((err, res) => {
+  //       expect(err).to.eql(null);
+  //       expect(res).to.have.status(200);
+  //       expect(res.body.name).to.eql('marshall');
+  //       done();
+  //     });
+  // });
 });
